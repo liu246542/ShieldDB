@@ -12,7 +12,8 @@ class RocksDBWrapper(object):
             opts.IncreaseParallelism()
             opts.OptimizaLevelStyleCompaction()
             opts.create_if_missing = True
-            self.__db = pyrocksdb.DB().open(opts, "shield.db")
+            self.__db = pyrocksdb.DB()
+            self.__db.open(opts, "shield.db")
             # self.__db = rocksdb.DB("shield.db", rocksdb.Options(create_if_missing=True))
             return "created"
         
@@ -30,24 +31,24 @@ class RocksDBWrapper(object):
             
     def put(self,key,value):
         if self.__db is not None:
-            self.__db.put(key,value)
+            self.__db.put(pyrocksdb.WriteOptions(),key,value)
     
     def get(self,key):
         if self.__db is not None:
-            return self.__db.get(key)
+            return self.__db.get(pyrocksdb.ReadOptions(),key)
         else:
             return None
         
     def delete(self,key):
         if self.__db is not None:
-            self.__db.delete(key) 
+            self.__db.delete(pyrocksdb.WriteOptions(),key) 
     
     def getInfo(self):
         if self.__db is not None:
             #https://github.com/facebook/rocksdb/wiki/RocksDB-Tuning-Guide
-            message = self.__db.get_property(b"rocksdb.estimate-num-keys").decode()
+            message = self.__db.get_property(pyrocksdb.ReadOptions(),b"rocksdb.estimate-num-keys").decode()
             message += "\n"
-            message += self.__db.get_property(b"rocksdb.stats").decode()
+            message += self.__db.get_property(pyrocksdb.ReadOptions(),b"rocksdb.stats").decode()
             return message
         else:
             return None
