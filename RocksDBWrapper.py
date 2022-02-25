@@ -1,4 +1,4 @@
-import rocksdb
+import pyrocksdb
 import gc
 import traceback
 
@@ -8,7 +8,12 @@ class RocksDBWrapper(object):
     
     def open(self):
         if self.__db is None: 
-            self.__db = rocksdb.DB("shield.db", rocksdb.Options(create_if_missing=True))
+            opts = pyrocksdb.Options()
+            opts.IncreaseParallelism()
+            opts.OptimizaLevelStyleCompaction()
+            opts.create_if_missing = True
+            self.__db = pyrocksdb.DB().open(opts, "shield.db")
+            # self.__db = rocksdb.DB("shield.db", rocksdb.Options(create_if_missing=True))
             return "created"
         
         return "existed"
