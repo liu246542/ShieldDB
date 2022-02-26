@@ -10,7 +10,7 @@ WORKDIR /root/rocksdb-5.18.3/build
 RUN cmake ..
 RUN make && make install INSTALL_PATH=/usr
 WORKDIR /root
-RUN pip3 install pycrypto nltk flask numpy
 RUN git clone https://github.com/twmht/python-rocksdb.git --recursive -b pybind11
 WORKDIR /root/python-rocksdb
 RUN python3 ./setup.py install
+RUN pip3 install pycrypto nltk flask numpy requests
