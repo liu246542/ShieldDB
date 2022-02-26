@@ -10,7 +10,6 @@ class RocksDBWrapper(object):
         if self.__db is None: 
             opts = pyrocksdb.Options()
             opts.IncreaseParallelism()
-            opts.OptimizaLevelStyleCompaction()
             opts.create_if_missing = True
             self.__db = pyrocksdb.DB()
             self.__db.open(opts, "shield.db")
