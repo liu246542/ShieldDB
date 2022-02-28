@@ -1,0 +1,18 @@
+>>>Processing 256_nh_150
+Cache size [20000, 20355, 20401, 20451, 20511, 20586, 20680, 20793, 20923, 21094, 21306, 21585, 21955, 22521, 23313, 24588, 26562, 30474, 40000]
+Padding size in total 274716370
+Padding set (mb) 1310.581015586853
+Fixed cluster keywords size 19
+Size of prob clusters 19
+>Activated: Padding Controller ('localhost', 8089)
+Start logging data to tmp folder
+Throughput 559739
+Batch count 18
+Average batch processing time (ms) 8169.863065664281
+Bogus pairs 1667914
+EDB size 2227653
+EDB size (mb) 159.96563625335693
+Avg result length 1243.8040201005026
+>Activated: Cache Controller ('localhost', 8089)
+Cache pairs 177007
+Cache (mb) 1.1381807327270508
