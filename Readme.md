@@ -7,7 +7,7 @@ Flask installation can be found at http://flask.pocoo.org/.
 
 RocksDB installation can be found at https://github.com/twmht/python-rocksdb.
 
-Here, we provide an example of streaming dataset and padding dataset regarding *alpha=156*. The data can be downloaded from this link.
+Here, we provide an example of streaming dataset and padding dataset regarding *alpha=256*. The data can be downloaded from this link.
 
 https://drive.google.com/drive/folders/1e837hYzcwtxMn-IuEPFL8Uid8-ZdgqzA?usp=sharing
 
