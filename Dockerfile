@@ -14,3 +14,6 @@ RUN git clone https://github.com/twmht/python-rocksdb.git --recursive -b pybind1
 WORKDIR /root/python-rocksdb
 RUN python3 ./setup.py install
 RUN pip3 install pycrypto nltk flask numpy requests
+WORKDIR /root
+RUN git clone https://github.com/liu246542/ShieldDB
+WORKDIR /root/ShieldDB
